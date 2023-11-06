@@ -1,0 +1,17 @@
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  status:
+    name: Status check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+      - name: Install dependencies
+        run: npm ci
+      - run: npm test
