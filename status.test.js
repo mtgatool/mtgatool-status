@@ -11,8 +11,8 @@ describe("SSL Certificates", () => {
   test.each(URLS)("SSL Certificate for %p", async (url) => {
     await sslChecker(url)
       .then((res) => {
-        // expect(res.valid).toBe(true);
-        expect(res.daysRemaining).toBeGreaterThan(0);
+        // Alert me if the cert is going to expire in less than 5 days
+        expect(res.daysRemaining).toBeGreaterThan(5);
       })
       .catch((err) => {
         throw new Error(err);
