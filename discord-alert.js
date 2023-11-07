@@ -22,6 +22,8 @@ client.once(Events.ClientReady, () => {
 	if (json.numFailedTests > 0) {
 		sendMessage(makeJestMessage());
 	}
+
+	process.exit(0);
 });
 
 function sendMessage(message) {
@@ -64,8 +66,9 @@ function makeJestMessage() {
 
 		message += `${NEWLINE}`;
 
-		message += process.env.ACTION_URL;
 	});
+
+	message += process.env.ACTION_URL;
 
 	return message;
 }
