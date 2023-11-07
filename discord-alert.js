@@ -23,7 +23,10 @@ client.once(Events.ClientReady, () => {
 		sendMessage(makeJestMessage());
 	}
 
-	process.exit(0);
+	setTimeout(() => {
+		client.destroy();
+		process.exit(0);
+	}, 10000);
 });
 
 function sendMessage(message) {
