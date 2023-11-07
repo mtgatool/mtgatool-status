@@ -21,7 +21,9 @@ jobs:
         run: npm ci
       - run: npm test
       - name: create env file
+        if: true
         run: |
           touch .env
           echo DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} >> .env
       - run: npm run discord
+        if: true
