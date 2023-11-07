@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env NODE_EXTRA_CA_CERTS=intermediate.pem jest"
+    "test": "cross-env NODE_EXTRA_CA_CERTS=intermediate.pem jest --json --outputFile=jest-report.json",
+    "discord": "node discord-alert.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cross-env": "^7.0.3",
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1",
     "jest": "^29.7.0",
     "ssl-checker": "^2.0.8"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0"
   }
 }
