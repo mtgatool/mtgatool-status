@@ -31,7 +31,7 @@ client.once(Events.ClientReady, () => {
 
 function sendMessage(message) {
 	client.channels.cache.each(channel => {
-		if (channel.name == 'internal-alerts') {
+		if (channel.name == 'internal-alerts' || channel.name == 'bot-alerts') {
 			channel.send(message);
 		}
 	});
