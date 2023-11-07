@@ -26,7 +26,7 @@ client.once(Events.ClientReady, () => {
 
 function sendMessage(message) {
 	client.channels.cache.each(channel => {
-		if (channel.name == 'internal-alerts' || channel.name == 'bot-alerts') {
+		if (channel.name == 'internal-alerts') {
 			channel.send(message);
 		}
 	});
@@ -63,6 +63,8 @@ function makeJestMessage() {
 		});
 
 		message += `${NEWLINE}`;
+
+		message += process.env.ACTION_URL;
 	});
 
 	return message;

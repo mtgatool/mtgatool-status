@@ -21,8 +21,7 @@ jobs:
         run: npm ci
       - run: npm test
         continue-on-error: true
-      - name: create env file
-        run: |
-          touch .env
-          echo DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }} >> .env
       - run: npm run discord
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          ACTION_URL: "https://github.com/${{github.repository}}/commit/${{github.sha}}/checks/${{github.run_id}}"
